@@ -63,6 +63,7 @@
 		0F069F9B1791FE1E00455146 /* ATTSpeechKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F069F991791FE1E00455146 /* ATTSpeechKit.a */; };
 		0F30D6EC17920CAF0026BB8F /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F30D6EB17920CAF0026BB8F /* clock.png */; };
 		0F30D6EE17920D200026BB8F /* stoppatrol.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F30D6ED17920D200026BB8F /* stoppatrol.png */; };
+		0F30D6F0179211070026BB8F /* 0P7Ocyec_4j9Nzlyjkkgp3XlwXXSKg6q4R26EVMDlV0.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F30D6EF179211070026BB8F /* 0P7Ocyec_4j9Nzlyjkkgp3XlwXXSKg6q4R26EVMDlV0.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,6 +140,7 @@
 		0F069F9A1791FE1E00455146 /* ATTSpeechKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATTSpeechKit.h; sourceTree = "<group>"; };
 		0F30D6EB17920CAF0026BB8F /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		0F30D6ED17920D200026BB8F /* stoppatrol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stoppatrol.png; sourceTree = "<group>"; };
+		0F30D6EF179211070026BB8F /* 0P7Ocyec_4j9Nzlyjkkgp3XlwXXSKg6q4R26EVMDlV0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0P7Ocyec_4j9Nzlyjkkgp3XlwXXSKg6q4R26EVMDlV0.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 		0F069EE61790EC1C00455146 = {
 			isa = PBXGroup;
 			children = (
+				0F30D6EF179211070026BB8F /* 0P7Ocyec_4j9Nzlyjkkgp3XlwXXSKg6q4R26EVMDlV0.png */,
 				0F069EF81790EC1C00455146 /* Charlie */,
 				0F069EF11790EC1C00455146 /* Frameworks */,
 				0F069EF01790EC1C00455146 /* Products */,
@@ -398,6 +401,7 @@
 				0F069F7E1791CF1700455146 /* heat.png in Resources */,
 				0F30D6EC17920CAF0026BB8F /* clock.png in Resources */,
 				0F30D6EE17920D200026BB8F /* stoppatrol.png in Resources */,
+				0F30D6F0179211070026BB8F /* 0P7Ocyec_4j9Nzlyjkkgp3XlwXXSKg6q4R26EVMDlV0.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@
 #import "BGCMapViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface BGCBeatEntryViewController ()
+@interface BGCBeatEntryViewController () <UIGestureRecognizerDelegate, UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *numberField;
 
 @end
@@ -23,8 +23,20 @@
 	// Do any additional setup after loading the view.
     [self configureView];
     
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped)];
+    tap.delegate = self;
+    [self.view addGestureRecognizer:tap];
     
 }
+
+-(void) backgroundTapped{
+    [self.view endEditing:YES];
+    
+
+}
+
+
+
 
 -(void) configureView{
     
