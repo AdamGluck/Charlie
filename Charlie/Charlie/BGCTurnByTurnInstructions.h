@@ -16,8 +16,8 @@
 
 @interface BGCTurnByTurnInstructions : NSObject 
 
-@property (strong, nonatomic) NSArray * instructions;
+@property (strong, nonatomic) NSDictionary * legs;
 
--(void) checkForNewInstruction;
+-(void) stop;
 
 @end

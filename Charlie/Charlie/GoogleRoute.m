@@ -143,6 +143,7 @@ static NSString *kMDDirectionsURL = @"http://maps.googleapis.com/maps/api/direct
 #pragma mark - Class Public Methods
 
 -(GoogleRoute *) initWithWaypoints: (NSArray *) waypoints sensorStatus: (BOOL) sensorOn andDelegate: (id) delegate{
+    
     self = [super init];
     
     if (self){

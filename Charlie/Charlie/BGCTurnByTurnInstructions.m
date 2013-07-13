@@ -8,6 +8,15 @@
 
 #import "BGCTurnByTurnInstructions.h"
 
+@interface BGCTurnByTurnInstructions()
+
+
+@end
+
 @implementation BGCTurnByTurnInstructions
+
+-(void) stop {
+    
+}
 
 @end
