@@ -7,8 +7,11 @@
 //
 
 #import "BGCMapViewController.h"
+#import <GoogleMaps/GoogleMaps.h>
 
-@interface BGCMapViewController ()
+@interface BGCMapViewController (){
+    GMSMapView *mapView_;
+}
 
 @end
 
@@ -18,7 +21,22 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    [self configureMapView];
 }
+
+#pragma mark - initial view configuration methods
+
+-(void) configureMapView{
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:41.8739580629 longitude:-87.6277394859 zoom:12]; // Chicago (zoomed out)
+    mapView_ = [GMSMapView mapWithFrame:self.view.bounds camera:camera];
+    mapView_.myLocationEnabled = YES;
+    
+    self.view = mapView_;
+}
+
+
+#pragma mark - boiler plate
 
 - (void)didReceiveMemoryWarning
 {

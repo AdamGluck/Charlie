@@ -32,6 +32,10 @@
 		0F069F2C1790ED6000455146 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F069F2B1790ED6000455146 /* OpenGLES.framework */; };
 		0F069F2E1790ED6500455146 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F069F2D1790ED6500455146 /* QuartzCore.framework */; };
 		0F069F301790ED6B00455146 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F069F2F1790ED6B00455146 /* SystemConfiguration.framework */; };
+		0F069F331790F83100455146 /* BGCCrimeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F069F321790F83100455146 /* BGCCrimeObject.m */; };
+		0F069F361790FA7500455146 /* BGCCrimeDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F069F351790FA7500455146 /* BGCCrimeDataAccess.m */; };
+		0F069F391790FF0900455146 /* BGCTurnByTurnInstructions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F069F381790FF0900455146 /* BGCTurnByTurnInstructions.m */; };
+		0F069F3D1790FF4F00455146 /* GoogleRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F069F3C1790FF4F00455146 /* GoogleRoute.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +69,14 @@
 		0F069F2B1790ED6000455146 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		0F069F2D1790ED6500455146 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0F069F2F1790ED6B00455146 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0F069F311790F83100455146 /* BGCCrimeObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGCCrimeObject.h; sourceTree = "<group>"; };
+		0F069F321790F83100455146 /* BGCCrimeObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGCCrimeObject.m; sourceTree = "<group>"; };
+		0F069F341790FA7500455146 /* BGCCrimeDataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGCCrimeDataAccess.h; sourceTree = "<group>"; };
+		0F069F351790FA7500455146 /* BGCCrimeDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGCCrimeDataAccess.m; sourceTree = "<group>"; };
+		0F069F371790FF0900455146 /* BGCTurnByTurnInstructions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGCTurnByTurnInstructions.h; sourceTree = "<group>"; };
+		0F069F381790FF0900455146 /* BGCTurnByTurnInstructions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGCTurnByTurnInstructions.m; sourceTree = "<group>"; };
+		0F069F3B1790FF4F00455146 /* GoogleRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleRoute.h; sourceTree = "<group>"; };
+		0F069F3C1790FF4F00455146 /* GoogleRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleRoute.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +152,8 @@
 			children = (
 				0F069F011790EC1C00455146 /* BGCAppDelegate.h */,
 				0F069F021790EC1C00455146 /* BGCAppDelegate.m */,
+				0F069F3E1790FFE000455146 /* Directions */,
+				0F069F3A1790FF1300455146 /* CrimeData */,
 				0F069F0A1790EC1C00455146 /* MainStoryboard.storyboard */,
 				0F069F0D1790EC1C00455146 /* BGCMapViewController.h */,
 				0F069F0E1790EC1C00455146 /* BGCMapViewController.m */,
@@ -160,6 +174,28 @@
 				0F069F081790EC1C00455146 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0F069F3A1790FF1300455146 /* CrimeData */ = {
+			isa = PBXGroup;
+			children = (
+				0F069F341790FA7500455146 /* BGCCrimeDataAccess.h */,
+				0F069F351790FA7500455146 /* BGCCrimeDataAccess.m */,
+				0F069F311790F83100455146 /* BGCCrimeObject.h */,
+				0F069F321790F83100455146 /* BGCCrimeObject.m */,
+			);
+			name = CrimeData;
+			sourceTree = "<group>";
+		};
+		0F069F3E1790FFE000455146 /* Directions */ = {
+			isa = PBXGroup;
+			children = (
+				0F069F371790FF0900455146 /* BGCTurnByTurnInstructions.h */,
+				0F069F381790FF0900455146 /* BGCTurnByTurnInstructions.m */,
+				0F069F3B1790FF4F00455146 /* GoogleRoute.h */,
+				0F069F3C1790FF4F00455146 /* GoogleRoute.m */,
+			);
+			name = Directions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +269,10 @@
 				0F069EFF1790EC1C00455146 /* main.m in Sources */,
 				0F069F031790EC1C00455146 /* BGCAppDelegate.m in Sources */,
 				0F069F0F1790EC1C00455146 /* BGCMapViewController.m in Sources */,
+				0F069F331790F83100455146 /* BGCCrimeObject.m in Sources */,
+				0F069F361790FA7500455146 /* BGCCrimeDataAccess.m in Sources */,
+				0F069F391790FF0900455146 /* BGCTurnByTurnInstructions.m in Sources */,
+				0F069F3D1790FF4F00455146 /* GoogleRoute.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +366,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Charlie/Charlie-Prefix.pch";
 				INFOPLIST_FILE = "Charlie/Charlie-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -342,6 +383,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Charlie/Charlie-Prefix.pch";
 				INFOPLIST_FILE = "Charlie/Charlie-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -366,6 +408,7 @@
 				0F069F141790EC1C00455146 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
