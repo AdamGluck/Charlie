@@ -11,13 +11,14 @@
 
 @protocol BGCCrimeDataAccessDelegate <NSObject>
 
+@optional
 -(void) crimeDataFillComplete: (NSArray *) crimeData;
 
 @end
 
 @interface BGCCrimeDataAccess : NSObject
 
-@property (strong, nonatomic, readonly) NSArray * crimeData;
+@property (strong, nonatomic) NSArray * crimeData;
 @property (assign, nonatomic) NSInteger beat;
 
 -(void) fillCrimeDataFromServerASynchrously;

@@ -40,6 +40,7 @@
 		0F069F491791205F00455146 /* BGCCustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F069F481791205F00455146 /* BGCCustomSegue.m */; };
 		0F069F4B17912E9300455146 /* submit.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F069F4A17912E9300455146 /* submit.png */; };
 		0F069F4E17912F7E00455146 /* BGCBeatEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F069F4D17912F7E00455146 /* BGCBeatEntryViewController.m */; };
+		0F069F511791351000455146 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 0F069F501791351000455146 /* test.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		0F069F4A17912E9300455146 /* submit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = submit.png; sourceTree = "<group>"; };
 		0F069F4C17912F7E00455146 /* BGCBeatEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGCBeatEntryViewController.h; sourceTree = "<group>"; };
 		0F069F4D17912F7E00455146 /* BGCBeatEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGCBeatEntryViewController.m; sourceTree = "<group>"; };
+		0F069F501791351000455146 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 				0F069F351790FA7500455146 /* BGCCrimeDataAccess.m */,
 				0F069F311790F83100455146 /* BGCCrimeObject.h */,
 				0F069F321790F83100455146 /* BGCCrimeObject.m */,
+				0F069F501791351000455146 /* test.json */,
 			);
 			name = CrimeData;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				0F069F0C1790EC1C00455146 /* MainStoryboard.storyboard in Resources */,
 				0F069F181790ECE900455146 /* GoogleMaps.bundle in Resources */,
 				0F069F4B17912E9300455146 /* submit.png in Resources */,
+				0F069F511791351000455146 /* test.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

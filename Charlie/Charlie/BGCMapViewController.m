@@ -8,10 +8,11 @@
 
 #import "BGCMapViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import <MapKit/MapKit.h>
 #import "GoogleRoute.h"
 #import "BGCTurnByTurnInstructions.h"
-#import <MapKit/MapKit.h>
 #import "BGCCrimeObject.h"
+#import "BGCCrimeDataAccess.h"
 
 @interface BGCMapViewController () <CLLocationManagerDelegate, GoogleRouteDelegate> {
     GMSMapView * mapView_;
@@ -30,6 +31,9 @@
     
     [self configureMapView];
     [self routeFromDeviceLocationToHome];
+    
+    BGCCrimeDataAccess * data = [[BGCCrimeDataAccess alloc] init];
+    [data fillCrimeDataFromServerASynchrously];
 }
 
 #pragma mark - map view configuration methods

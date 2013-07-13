@@ -11,8 +11,10 @@
 
 @interface BGCCrimeObject : NSObject 
 
-@property (assign, nonatomic) NSInteger probability;
+@property (assign, nonatomic) double probability;
 @property (assign, nonatomic) NSInteger time;
 @property (assign, nonatomic) CLLocationCoordinate2D coordinate;
+
+-(BGCCrimeObject *) initWithProbability: (double) probability time: (NSInteger) time andCoordinate: (CLLocationCoordinate2D) coordinate;
 
 @end
