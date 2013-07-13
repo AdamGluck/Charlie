@@ -17,7 +17,7 @@
 		0F069F071790EC1C00455146 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F069F061790EC1C00455146 /* Default@2x.png */; };
 		0F069F091790EC1C00455146 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F069F081790EC1C00455146 /* Default-568h@2x.png */; };
 		0F069F0C1790EC1C00455146 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F069F0A1790EC1C00455146 /* MainStoryboard.storyboard */; };
-		0F069F0F1790EC1C00455146 /* BGCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F069F0E1790EC1C00455146 /* BGCViewController.m */; };
+		0F069F0F1790EC1C00455146 /* BGCMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F069F0E1790EC1C00455146 /* BGCMapViewController.m */; };
 		0F069F161790EC9600455146 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F069F151790EC9600455146 /* GoogleMaps.framework */; };
 		0F069F181790ECE900455146 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0F069F171790ECE900455146 /* GoogleMaps.bundle */; };
 		0F069F1A1790ED1B00455146 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F069F191790ED1B00455146 /* AVFoundation.framework */; };
@@ -49,8 +49,8 @@
 		0F069F061790EC1C00455146 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		0F069F081790EC1C00455146 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0F069F0B1790EC1C00455146 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		0F069F0D1790EC1C00455146 /* BGCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BGCViewController.h; sourceTree = "<group>"; };
-		0F069F0E1790EC1C00455146 /* BGCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BGCViewController.m; sourceTree = "<group>"; };
+		0F069F0D1790EC1C00455146 /* BGCMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BGCMapViewController.h; sourceTree = "<group>"; };
+		0F069F0E1790EC1C00455146 /* BGCMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BGCMapViewController.m; sourceTree = "<group>"; };
 		0F069F151790EC9600455146 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		0F069F171790ECE900455146 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		0F069F191790ED1B00455146 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -141,8 +141,8 @@
 				0F069F011790EC1C00455146 /* BGCAppDelegate.h */,
 				0F069F021790EC1C00455146 /* BGCAppDelegate.m */,
 				0F069F0A1790EC1C00455146 /* MainStoryboard.storyboard */,
-				0F069F0D1790EC1C00455146 /* BGCViewController.h */,
-				0F069F0E1790EC1C00455146 /* BGCViewController.m */,
+				0F069F0D1790EC1C00455146 /* BGCMapViewController.h */,
+				0F069F0E1790EC1C00455146 /* BGCMapViewController.m */,
 				0F069EF91790EC1C00455146 /* Supporting Files */,
 			);
 			path = Charlie;
@@ -232,7 +232,7 @@
 			files = (
 				0F069EFF1790EC1C00455146 /* main.m in Sources */,
 				0F069F031790EC1C00455146 /* BGCAppDelegate.m in Sources */,
-				0F069F0F1790EC1C00455146 /* BGCViewController.m in Sources */,
+				0F069F0F1790EC1C00455146 /* BGCMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

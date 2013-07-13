@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BGCViewController : UIViewController
+@interface BGCMapViewController : UIViewController
 
 @end

@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Charlie Corp (Team BGC). All rights reserved.
 //
 
-#import "BGCViewController.h"
+#import "BGCMapViewController.h"
 
-@interface BGCViewController ()
+@interface BGCMapViewController ()
 
 @end
 
-@implementation BGCViewController
+@implementation BGCMapViewController
 
 - (void)viewDidLoad
 {
