@@ -12,5 +12,7 @@
 
 @property (assign, nonatomic) NSInteger beat;
 @property (assign, nonatomic) NSInteger time;
+@property (assign, nonatomic) BOOL shouldBeHeatMap;
+@property (assign, nonatomic) BOOL shouldBeRoute;
 
 @end

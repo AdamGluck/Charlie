@@ -40,7 +40,11 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
-    ((BGCMapViewController*)segue.destinationViewController).beat = self.numberField.text.integerValue;
+    BGCMapViewController * dest = (BGCMapViewController *) segue.destinationViewController;
+    dest.beat = self.numberField.text.integerValue;
+    dest.shouldBeHeatMap = NO;
+    dest.shouldBeRoute = YES;
+    
 }
 
 - (void)didReceiveMemoryWarning
