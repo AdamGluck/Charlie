@@ -29,7 +29,7 @@
                                     <segue destination="2" kind="push" id="iVF-cq-D1I"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aga-Pl-WLo">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1831" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aga-Pl-WLo">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="hli-xP-Fpu"/>
@@ -59,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGv-Ho-jGB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-425" y="-57"/>
+            <point key="canvasLocation" x="-1109" y="-41"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="5">
@@ -100,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1" y="-57"/>
+            <point key="canvasLocation" x="-683" y="-41"/>
         </scene>
         <!--Options View Controller-->
         <scene sceneID="AV6-lV-RLt">
@@ -138,6 +138,15 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qA-np-N2r">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="117" id="ITV-N8-ikS"/>
+                                    <constraint firstAttribute="height" constant="62" id="zcH-ed-VBZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -145,7 +154,9 @@
                             <constraint firstItem="jUo-87-1cM" firstAttribute="top" secondItem="WRe-X4-vex" secondAttribute="top" type="default" id="9hh-On-rSf"/>
                             <constraint firstItem="jUo-87-1cM" firstAttribute="leading" secondItem="4Vy-cz-jx9" secondAttribute="leading" constant="15" id="Fwy-mx-q94"/>
                             <constraint firstItem="jUo-87-1cM" firstAttribute="top" secondItem="4Vy-cz-jx9" secondAttribute="top" constant="217" id="MLO-YP-WgU"/>
+                            <constraint firstItem="3qA-np-N2r" firstAttribute="top" secondItem="4Vy-cz-jx9" secondAttribute="top" constant="68" id="MtI-Dx-EpM"/>
                             <constraint firstItem="WRe-X4-vex" firstAttribute="leading" secondItem="jUo-87-1cM" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Qo6-Zh-Cet"/>
+                            <constraint firstItem="3qA-np-N2r" firstAttribute="centerX" secondItem="KBz-1P-P9O" secondAttribute="centerX" type="default" id="bit-ZD-LWU"/>
                             <constraint firstItem="KBz-1P-P9O" firstAttribute="leading" secondItem="4Vy-cz-jx9" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="k4M-zf-oc9"/>
                             <constraint firstAttribute="trailing" secondItem="KBz-1P-P9O" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="xA1-CW-49x"/>
                             <constraint firstItem="KBz-1P-P9O" firstAttribute="top" secondItem="4Vy-cz-jx9" secondAttribute="top" constant="170" id="z7e-S1-pFC"/>
@@ -157,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJL-aV-O2C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="395" y="-57"/>
+            <point key="canvasLocation" x="-289" y="-41"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tUk-mg-g0a">
@@ -175,7 +186,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iOJ-ON-YlJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-867" y="-57"/>
+            <point key="canvasLocation" x="-1551" y="-41"/>
         </scene>
     </scenes>
     <resources>
@@ -194,9 +205,6 @@
         </class>
         <class className="BGCMapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BGCMapViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="navigate:"/>
-            </relationships>
         </class>
         <class className="BGCOptionsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BGCOptionsViewController.h"/>

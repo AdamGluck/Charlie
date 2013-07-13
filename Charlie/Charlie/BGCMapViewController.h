@@ -11,5 +11,6 @@
 @interface BGCMapViewController : UIViewController
 
 @property (assign, nonatomic) NSInteger beat;
+@property (assign, nonatomic) NSInteger time;
 
 @end

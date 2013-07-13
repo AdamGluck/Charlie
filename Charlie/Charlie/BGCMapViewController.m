@@ -15,6 +15,7 @@
 
 @interface BGCMapViewController () <CLLocationManagerDelegate, GoogleRouteDelegate, BGCCrimeDataAccessDelegate> {
     GMSMapView * mapView_;
+    BOOL routing;
 }
 @property (strong, nonatomic) CLLocationManager * locationManager;
 @property (strong, nonatomic) BGCTurnByTurnInstructions * instructions;
@@ -28,12 +29,16 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    [self configureMapView];
-    //[self routeFromDeviceLocationToHome];
     
-    BGCCrimeDataAccess * data = [[BGCCrimeDataAccess alloc] init];
-    data.delegate = self;
-    [data fillCrimeDataFromServerASynchrouslyForBeat:1];
+    NSDateComponents * hourComponents = [[NSCalendar currentCalendar] components:NSHourCalendarUnit fromDate:[NSDate date]];
+    hourComponents.timeZone = [NSTimeZone systemTimeZone];
+    self.time = [hourComponents hour];
+    routing = false;
+    
+    [self configureNavBar];
+    [self configureMapView];
+    [self fillData];
+    
 }
 
 #pragma mark - BGCrimeDataAccessDelegate 
@@ -41,7 +46,7 @@
 -(void) crimeDataFillComplete:(NSArray *)crimeData{
     
     // note to self: self.beat should be getting beat data... using it here for testing
-    NSArray * localMidnightCrimes = crimeData[self.beat];
+    NSArray * localMidnightCrimes = crimeData[self.time];
     
     int toIndex;
     int crimeCount = [localMidnightCrimes count];
@@ -131,27 +136,13 @@
 
 #pragma mark - routing functions
 
--(void) routeFromDeviceLocationToHome{
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    self.locationManager.delegate = self;
-    [self.locationManager startUpdatingLocation];
-    
-}
+
 
 // 41.783714,-87.597426
 -(void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
-
-    CLLocationCoordinate2D currentLocation = manager.location.coordinate;
     
-    CLLocationCoordinate2D homeLocation = CLLocationCoordinate2DMake(41.783714, -87.597426);
+    self.locationManager = manager;
     
-    GoogleRoute * route = [[GoogleRoute alloc] initWithWaypoints:@[[NSString stringWithFormat:@"%f,%f", currentLocation.latitude, currentLocation.longitude], [NSString stringWithFormat:@"%f,%f", homeLocation.latitude, homeLocation.longitude]] sensorStatus:YES andDelegate:self];
-
-    
-    [route goWithTransportationType:kTransportationTypeDriving];
-    
-    [manager stopUpdatingLocation];
     
 }
 
@@ -165,6 +156,7 @@
     
     for (BGCCrimeObject * hotSpot in crimeObjects){
         NSString * location = [NSString stringWithFormat:@"%f, %f", hotSpot.location.coordinate.latitude, hotSpot.location.coordinate.longitude];
+        [self addMarkerAtLocation:hotSpot.location withTitle: [NSString stringWithFormat:@"%.02f", hotSpot.probability * 100]];
         [routes addObject:location];
     }
 
@@ -179,8 +171,7 @@
 
 -(void) routeWithPolyline:(GMSPolyline *)polyline{
     polyline.map = mapView_;
-    
-    
+
 }
 
 -(void) directionsFromServer:(NSDictionary *)directionsDictionary{
@@ -193,10 +184,49 @@
 
 #pragma mark - actions 
 - (IBAction)navigate:(id)sender {
+    NSDateComponents * hourComponents = [[NSCalendar currentCalendar] components:NSHourCalendarUnit fromDate:[NSDate date]];
+    hourComponents.timeZone = [NSTimeZone systemTimeZone];
+    self.time = [hourComponents hour];
     
-    NSLog( @"%@", [self.instructions next]);
+    [self fillData];
+    
+    routing = YES;
+    
+    NSLog(@"location manager = %@", self.locationManager);
+    GMSCameraPosition * cameraPosition = [GMSCameraPosition cameraWithLatitude:self.locationManager.location.coordinate.latitude longitude:self.locationManager.location.coordinate.longitude zoom:17];
+    [mapView_ animateToCameraPosition:cameraPosition];
+    NSTimer * timer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                       target:self
+                                                     selector:@selector(updateCamera:)
+                                                     userInfo:nil
+                                                     repeats:YES];
+}
+
+-(void) fillData{
+    BGCCrimeDataAccess * data = [[BGCCrimeDataAccess alloc] init];
+    data.delegate = self;
+    [data fillCrimeDataFromServerASynchrouslyForBeat:self.beat];
 }
  
+-(void) updateCamera: (NSTimer *) timer{
+    if (routing)
+        [mapView_ animateToLocation:self.locationManager.location.coordinate];
+    
+}
+
+
+#pragma mark - initialization method
+
+-(CLLocationManager *) locationManager{
+    if (!_locationManager){
+        _locationManager = [[CLLocationManager alloc] init];
+        _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        _locationManager.delegate = self;
+        [_locationManager startUpdatingLocation];
+    }
+    
+    return _locationManager;
+}
 
 #pragma mark - boiler plate
 
