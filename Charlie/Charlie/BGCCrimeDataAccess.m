@@ -12,7 +12,7 @@
 
 #pragma mark - definitions
 
-static NSString * kRequestURL = @"http://AndrewURL/beat/";
+static NSString * kRequestURL = @"http://nameless-beyond-9906.herokuapp.com/beat/2525";
 
 #pragma mark - Easy Get Request
 - (id) myGetRequest: (NSURL *) url{

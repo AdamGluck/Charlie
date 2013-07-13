@@ -38,6 +38,8 @@
 		0F069F3D1790FF4F00455146 /* GoogleRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F069F3C1790FF4F00455146 /* GoogleRoute.m */; };
 		0F069F4317911E2100455146 /* BGCOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F069F4217911E2100455146 /* BGCOptionsViewController.m */; };
 		0F069F491791205F00455146 /* BGCCustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F069F481791205F00455146 /* BGCCustomSegue.m */; };
+		0F069F4B17912E9300455146 /* submit.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F069F4A17912E9300455146 /* submit.png */; };
+		0F069F4E17912F7E00455146 /* BGCBeatEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F069F4D17912F7E00455146 /* BGCBeatEntryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +86,9 @@
 		0F069F4217911E2100455146 /* BGCOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGCOptionsViewController.m; sourceTree = "<group>"; };
 		0F069F471791205F00455146 /* BGCCustomSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BGCCustomSegue.h; path = ../BGCCustomSegue.h; sourceTree = "<group>"; };
 		0F069F481791205F00455146 /* BGCCustomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BGCCustomSegue.m; path = ../BGCCustomSegue.m; sourceTree = "<group>"; };
+		0F069F4A17912E9300455146 /* submit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = submit.png; sourceTree = "<group>"; };
+		0F069F4C17912F7E00455146 /* BGCBeatEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGCBeatEntryViewController.h; sourceTree = "<group>"; };
+		0F069F4D17912F7E00455146 /* BGCBeatEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGCBeatEntryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,10 +170,13 @@
 				0F069F3E1790FFE000455146 /* Directions */,
 				0F069F3A1790FF1300455146 /* CrimeData */,
 				0F069F0A1790EC1C00455146 /* MainStoryboard.storyboard */,
+				0F069F4C17912F7E00455146 /* BGCBeatEntryViewController.h */,
+				0F069F4D17912F7E00455146 /* BGCBeatEntryViewController.m */,
 				0F069F4117911E2100455146 /* BGCOptionsViewController.h */,
 				0F069F4217911E2100455146 /* BGCOptionsViewController.m */,
 				0F069F0D1790EC1C00455146 /* BGCMapViewController.h */,
 				0F069F0E1790EC1C00455146 /* BGCMapViewController.m */,
+				0F069F4F1791324300455146 /* images */,
 				0F069EF91790EC1C00455146 /* Supporting Files */,
 			);
 			path = Charlie;
@@ -208,6 +216,14 @@
 				0F069F3C1790FF4F00455146 /* GoogleRoute.m */,
 			);
 			name = Directions;
+			sourceTree = "<group>";
+		};
+		0F069F4F1791324300455146 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				0F069F4A17912E9300455146 /* submit.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +284,7 @@
 				0F069F091790EC1C00455146 /* Default-568h@2x.png in Resources */,
 				0F069F0C1790EC1C00455146 /* MainStoryboard.storyboard in Resources */,
 				0F069F181790ECE900455146 /* GoogleMaps.bundle in Resources */,
+				0F069F4B17912E9300455146 /* submit.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +304,7 @@
 				0F069F3D1790FF4F00455146 /* GoogleRoute.m in Sources */,
 				0F069F4317911E2100455146 /* BGCOptionsViewController.m in Sources */,
 				0F069F491791205F00455146 /* BGCCustomSegue.m in Sources */,
+				0F069F4E17912F7E00455146 /* BGCBeatEntryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

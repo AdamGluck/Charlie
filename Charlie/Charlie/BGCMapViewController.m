@@ -17,6 +17,7 @@
     GMSMapView * mapView_;
 }
 @property (strong, nonatomic) CLLocationManager * locationManager;
+@property (strong, nonatomic) BGCTurnByTurnInstructions * instructions;
 
 @end
 
@@ -83,10 +84,13 @@
 -(void) directionsFromServer:(NSDictionary *)directionsDictionary{
     NSDictionary * routesDictionary = directionsDictionary[@"routes"][0];
     NSDictionary * legsDictionary = routesDictionary[@"legs"][0];
-    /*
-    BGCTurnByTurnInstructions * instructionObject = [[BGCTurnByTurnInstructions alloc] init];
-    instructionObject.steps = legsDictionary[@"steps"];
-    */
+    
+    self.instructions= [[BGCTurnByTurnInstructions alloc] initWithSteps: legsDictionary[@"steps"]];
+    
+}
+- (IBAction)navigate:(id)sender {
+    
+    NSLog( @"%@", [self.instructions next]);
 }
  
 

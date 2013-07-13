@@ -8,17 +8,27 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import <GoogleMaps/GoogleMaps.h>
 
-@protocol TurnByTurnInstructionDelegate <NSObject>
+@protocol TurnByTurnInstructionsDelegate <NSObject>
 
--(void) instructionFoundWithText: (NSString *) instruction;
+@optional
+-(void) currentStepPolyline: (GMSPolyline *) polyline;
+-(void) lastStepPolyline: (GMSPolyline *) polyline;
 
 @end
 
 @interface BGCTurnByTurnInstructions : NSObject 
 
 @property (strong, nonatomic) NSArray * steps;
+@property (strong, nonatomic) NSString * currentStep;
+@property (weak, nonatomic) id <TurnByTurnInstructionsDelegate> delegate;
+@property (strong, nonatomic) GMSPolyline * stepPolyline;
 
--(void) stop;
+-(NSString *) next;
+-(NSString *) last;
+-(NSString *) stepAtIndex: (NSInteger) index;
+
+-(BGCTurnByTurnInstructions *) initWithSteps: (NSArray *) steps;
 
 @end

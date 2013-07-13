@@ -4,24 +4,28 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Beat Entry View Controller-->
         <scene sceneID="aBw-RP-7lD">
             <objects>
-                <viewController id="fx7-3f-rJo" sceneMemberID="viewController">
+                <viewController id="fx7-3f-rJo" customClass="BGCBeatEntryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BY1-kR-B1P">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aga-Pl-WLo">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aga-Pl-WLo">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="hli-xP-Fpu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkD-ao-LeH">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkD-ao-LeH">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="DMx-Fu-5Ed"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Button" image="submit.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -34,20 +38,20 @@
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Enter Beat Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTd-JV-PEK">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Aga-Pl-WLo" firstAttribute="leading" secondItem="BY1-kR-B1P" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="1Hy-c7-vHA"/>
                             <constraint firstItem="qkD-ao-LeH" firstAttribute="leading" secondItem="BY1-kR-B1P" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ACp-8U-hBC"/>
-                            <constraint firstItem="Aga-Pl-WLo" firstAttribute="top" secondItem="BY1-kR-B1P" secondAttribute="top" constant="136" id="Ay4-za-7He"/>
-                            <constraint firstItem="qkD-ao-LeH" firstAttribute="top" secondItem="BY1-kR-B1P" secondAttribute="top" constant="203" id="FYO-vr-V7O"/>
+                            <constraint firstItem="RTd-JV-PEK" firstAttribute="top" secondItem="BY1-kR-B1P" secondAttribute="top" constant="163" id="CAK-Ma-INK"/>
                             <constraint firstItem="RTd-JV-PEK" firstAttribute="centerX" secondItem="Aga-Pl-WLo" secondAttribute="centerX" type="default" id="WCp-z8-Cmk"/>
-                            <constraint firstItem="RTd-JV-PEK" firstAttribute="top" secondItem="BY1-kR-B1P" secondAttribute="top" constant="92" id="Zuk-Ed-reX"/>
+                            <constraint firstAttribute="bottom" secondItem="Aga-Pl-WLo" secondAttribute="bottom" constant="193" id="hab-dA-KVM"/>
                             <constraint firstAttribute="trailing" secondItem="Aga-Pl-WLo" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="rgq-ji-TsG"/>
                             <constraint firstAttribute="trailing" secondItem="qkD-ao-LeH" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="tif-Sa-Bcu"/>
+                            <constraint firstAttribute="bottom" secondItem="qkD-ao-LeH" secondAttribute="bottom" constant="104" id="uJX-ur-Mez"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ktd-r1-RdV"/>
@@ -76,6 +80,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="navigate:" destination="2" eventType="touchUpInside" id="VU8-3l-nRW"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -192,9 +199,18 @@
             <point key="canvasLocation" x="-945" y="-57"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="submit.png" width="601" height="92"/>
+    </resources>
     <classes>
+        <class className="BGCBeatEntryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BGCBeatEntryViewController.h"/>
+        </class>
         <class className="BGCMapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BGCMapViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="navigate:"/>
+            </relationships>
         </class>
         <class className="BGCOptionsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BGCOptionsViewController.h"/>
