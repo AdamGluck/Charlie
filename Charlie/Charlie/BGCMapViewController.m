@@ -130,31 +130,30 @@
 -(void) routeBetweenCrimeObjects: (NSArray *) crimeObjects{
     
     NSLog(@"crime objects count == %i", [crimeObjects count]);
-    for (int i = 0; i < [crimeObjects count]; i++){
-        
-        int j;
-        
-        if (i == [crimeObjects count] - 1)
-            j = 0;
-        else
-            j = i +1;
-        
-        NSLog(@"i == %i, j == %i", i, j);
-        BGCCrimeObject * firstHotSpot = crimeObjects[i];
-        BGCCrimeObject * secondHotSpot = crimeObjects[j];
-        
-        NSString * firstLocation = [NSString stringWithFormat:@"%f,%f", firstHotSpot.location.coordinate.latitude, firstHotSpot.location.coordinate.longitude];
-        NSString * secondLocation = [NSString stringWithFormat:@"%f, %f", secondHotSpot.location.coordinate.latitude, secondHotSpot.location.coordinate.longitude];
-        
-        GoogleRoute * route = [[GoogleRoute alloc] initWithWaypoints:@[firstLocation, secondLocation] sensorStatus:YES andDelegate:self];
-        [route goWithTransportationType:kTransportationTypeDriving];
-        
+    
+    BGCCrimeObject * firstHotSpot = crimeObjects[0];
+    NSString * firstLocation = [NSString stringWithFormat:@"%f,%f", firstHotSpot.location.coordinate.latitude, firstHotSpot.location.coordinate.longitude];
+    
+    NSMutableArray * routes = [[NSMutableArray alloc] init];
+    
+    for (BGCCrimeObject * hotSpot in crimeObjects){
+        NSString * location = [NSString stringWithFormat:@"%f, %f", hotSpot.location.coordinate.latitude, hotSpot.location.coordinate.longitude];
+        [routes addObject:location];
     }
+
+    [routes addObject:firstLocation]; // so it cirlces
+    GoogleRoute * route = [[GoogleRoute alloc] initWithWaypoints:[routes copy] sensorStatus:YES andDelegate:self];
+    [route goWithTransportationType:kTransportationTypeDriving];
+
     
 }
 
+
+
 -(void) routeWithPolyline:(GMSPolyline *)polyline{
     polyline.map = mapView_;
+    
+    
 }
 
 -(void) directionsFromServer:(NSDictionary *)directionsDictionary{
