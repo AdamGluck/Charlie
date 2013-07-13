@@ -82,7 +82,6 @@ static NSString *kMDDirectionsURL = @"http://maps.googleapis.com/maps/api/direct
     url = [[url
            stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding] mutableCopy];
     self.directionsURL = [NSURL URLWithString:url];
-    NSLog(@"URL = %@", self.directionsURL);
     [self retrieveDirections];
 }
 
@@ -130,10 +129,10 @@ static NSString *kMDDirectionsURL = @"http://maps.googleapis.com/maps/api/direct
         else if (transportationType == kTransportationTypeBiking)
             polylineColor = [UIColor colorWithRed:0 green:100/255.0 blue:0.0 alpha:1.0f];
         else
-            polylineColor = [UIColor darkGrayColor];
+            polylineColor = [UIColor colorWithRed:51.0/255.0 green:153.0/255.0 blue:255.0/255.0 alpha:1.0f];
         
         polyline.strokeColor = polylineColor;
-        polyline.strokeWidth = 4.0f;
+        polyline.strokeWidth = 6.0f;
         
         [self.delegate routeWithPolyline:polyline];
     }

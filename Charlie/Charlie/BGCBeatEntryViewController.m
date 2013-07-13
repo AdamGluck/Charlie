@@ -7,9 +7,11 @@
 //
 
 #import "BGCBeatEntryViewController.h"
+#import "BGCMapViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface BGCBeatEntryViewController ()
+@property (strong, nonatomic) IBOutlet UITextField *numberField;
 
 @end
 
@@ -20,6 +22,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self configureView];
+    
+    
 }
 
 -(void) configureView{
@@ -31,6 +35,12 @@
                          (id)[[UIColor colorWithRed:214.0/255.0 green:214.0/255.0 blue:214.0/255.0 alpha:1.0f] CGColor]];
     [self.view.layer insertSublayer:gradient atIndex:0];
     
+}
+
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    ((BGCMapViewController*)segue.destinationViewController).beat = self.numberField.text.integerValue;
 }
 
 - (void)didReceiveMemoryWarning

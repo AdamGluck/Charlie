@@ -59,7 +59,7 @@ static NSString * kRequestURL = @"http://nameless-beyond-9906.herokuapp.com/beat
 }
 
 
--(void) fillCrimeDataFromServerASynchrously{
+-(void) fillCrimeDataFromServerASynchrouslyForBeat:(NSInteger)beat{
     
     NSDictionary * sampleData = [self grabJSONTestData];
     NSMutableArray * mutableCrimeData = [[NSMutableArray alloc] init];
@@ -70,8 +70,9 @@ static NSString * kRequestURL = @"http://nameless-beyond-9906.herokuapp.com/beat
         
         for (NSDictionary * crime in sampleData[key]){
             
-            CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake( ((NSString*)crime[@"Latitude"]).doubleValue, ((NSString *)crime[@"Longitude"]).doubleValue);
-            BGCCrimeObject * crimeObject = [[BGCCrimeObject alloc] initWithProbability: ((NSString *)crime[@"Probability"]).doubleValue time:key.integerValue andCoordinate:coordinate];
+            
+            CLLocation * location = [[CLLocation alloc] initWithLatitude:((NSString*)crime[@"Latitude"]).doubleValue longitude:((NSString *)crime[@"Longitude"]).doubleValue];
+            BGCCrimeObject * crimeObject = [[BGCCrimeObject alloc] initWithProbability: ((NSString *)crime[@"Probability"]).doubleValue time:key.integerValue andLocation:location];
             [crimeObjectArray addObject:crimeObject];
             
         }
@@ -82,7 +83,8 @@ static NSString * kRequestURL = @"http://nameless-beyond-9906.herokuapp.com/beat
     
     self.crimeData = [mutableCrimeData copy];
     
-    NSLog(@"crime data %@", self.crimeData);
+    [self.delegate crimeDataFillComplete:self.crimeData];
+    
     
 }
 

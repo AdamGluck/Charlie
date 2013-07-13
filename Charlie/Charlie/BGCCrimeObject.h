@@ -13,8 +13,8 @@
 
 @property (assign, nonatomic) double probability;
 @property (assign, nonatomic) NSInteger time;
-@property (assign, nonatomic) CLLocationCoordinate2D coordinate;
+@property (strong, nonatomic) CLLocation * location;
 
--(BGCCrimeObject *) initWithProbability: (double) probability time: (NSInteger) time andCoordinate: (CLLocationCoordinate2D) coordinate;
+-(BGCCrimeObject *) initWithProbability: (double) probability time: (NSInteger) time andLocation: (CLLocation *) location;
 
 @end

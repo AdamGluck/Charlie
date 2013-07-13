@@ -10,14 +10,14 @@
 
 @implementation BGCCrimeObject
 
--(BGCCrimeObject *) initWithProbability: (double) probability time: (NSInteger) time andCoordinate: (CLLocationCoordinate2D) coordinate{
+-(BGCCrimeObject *) initWithProbability: (double) probability time: (NSInteger) time andLocation: (CLLocation *) location {
     
     self = [super init];
     
     if (self){
         self.probability = probability;
         self.time = time;
-        self.coordinate = coordinate;
+        self.location = [location copy];
     }
     
     return self;

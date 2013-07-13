@@ -11,10 +11,9 @@
 #import <MapKit/MapKit.h>
 #import "GoogleRoute.h"
 #import "BGCTurnByTurnInstructions.h"
-#import "BGCCrimeObject.h"
 #import "BGCCrimeDataAccess.h"
 
-@interface BGCMapViewController () <CLLocationManagerDelegate, GoogleRouteDelegate> {
+@interface BGCMapViewController () <CLLocationManagerDelegate, GoogleRouteDelegate, BGCCrimeDataAccessDelegate> {
     GMSMapView * mapView_;
 }
 @property (strong, nonatomic) CLLocationManager * locationManager;
@@ -30,14 +29,59 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     [self configureMapView];
-    [self routeFromDeviceLocationToHome];
+    //[self routeFromDeviceLocationToHome];
     
     BGCCrimeDataAccess * data = [[BGCCrimeDataAccess alloc] init];
-    [data fillCrimeDataFromServerASynchrously];
+    data.delegate = self;
+    [data fillCrimeDataFromServerASynchrouslyForBeat:1];
+}
+
+#pragma mark - BGCrimeDataAccessDelegate 
+
+-(void) crimeDataFillComplete:(NSArray *)crimeData{
+    
+    // note to self: self.beat should be getting beat data... using it here for testing
+    NSArray * localMidnightCrimes = crimeData[self.beat];
+    
+    int toIndex;
+    int crimeCount = [localMidnightCrimes count];
+    
+    if (crimeCount >= 10)
+        toIndex = 9;
+    else
+        toIndex = crimeCount - 1;
+    
+    NSArray * topTenHotSpots = [[NSArray alloc] initWithArray:[localMidnightCrimes objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, toIndex)] ] ];
+    
+    [self routeBetweenCrimeObjects:topTenHotSpots];
+    [self configureNavBar];
+    
+}
+
+#pragma mark - UINavigationBar customization
+
+-(void) configureNavBar{
+    
+    UIButton * leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 21, 31)];
+    [leftButton setBackgroundImage:[UIImage imageNamed:@"backarrow.png"] forState:UIControlStateNormal];
+    [leftButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    
+    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
+                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                       target:nil action:nil];
+    negativeSpacer.width = 7;
+    
+    self.navigationItem.hidesBackButton = YES;
+    self.navigationItem.leftBarButtonItems = [NSArray
+                                              arrayWithObjects:negativeSpacer, leftButtonItem, nil];
+}
+
+-(void) back{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - map view configuration methods
-
 
 
 -(void) configureMapView{
@@ -48,14 +92,16 @@
     [self.view insertSubview:mapView_ atIndex:0];
 }
 
-- (void)addMarkerAtLocation:(CLLocation *)location withTitle:(NSString *)title
+- (void)addMarkerAtLocation:(CLLocation *) location withTitle:(NSString *)title
 {
     GMSMarker *marker = [[GMSMarker alloc] init];
     marker.position = location.coordinate;
     marker.title = title;
     marker.map = mapView_;
 }
- 
+
+
+#pragma mark - routing functions
 
 -(void) routeFromDeviceLocationToHome{
     self.locationManager = [[CLLocationManager alloc] init];
@@ -80,18 +126,46 @@
     
 }
 
- 
+
+-(void) routeBetweenCrimeObjects: (NSArray *) crimeObjects{
+    
+    NSLog(@"crime objects count == %i", [crimeObjects count]);
+    for (int i = 0; i < [crimeObjects count]; i++){
+        
+        int j;
+        
+        if (i == [crimeObjects count] - 1)
+            j = 0;
+        else
+            j = i +1;
+        
+        NSLog(@"i == %i, j == %i", i, j);
+        BGCCrimeObject * firstHotSpot = crimeObjects[i];
+        BGCCrimeObject * secondHotSpot = crimeObjects[j];
+        
+        NSString * firstLocation = [NSString stringWithFormat:@"%f,%f", firstHotSpot.location.coordinate.latitude, firstHotSpot.location.coordinate.longitude];
+        NSString * secondLocation = [NSString stringWithFormat:@"%f, %f", secondHotSpot.location.coordinate.latitude, secondHotSpot.location.coordinate.longitude];
+        
+        GoogleRoute * route = [[GoogleRoute alloc] initWithWaypoints:@[firstLocation, secondLocation] sensorStatus:YES andDelegate:self];
+        [route goWithTransportationType:kTransportationTypeDriving];
+        
+    }
+    
+}
+
 -(void) routeWithPolyline:(GMSPolyline *)polyline{
     polyline.map = mapView_;
 }
 
 -(void) directionsFromServer:(NSDictionary *)directionsDictionary{
-    NSDictionary * routesDictionary = directionsDictionary[@"routes"][0];
-    NSDictionary * legsDictionary = routesDictionary[@"legs"][0];
+    //NSDictionary * routesDictionary = directionsDictionary[@"routes"][0];
+    //NSDictionary * legsDictionary = routesDictionary[@"legs"][0];
     
-    self.instructions= [[BGCTurnByTurnInstructions alloc] initWithSteps: legsDictionary[@"steps"]];
+    //self.instructions= [[BGCTurnByTurnInstructions alloc] initWithSteps: legsDictionary[@"steps"]];
     
 }
+
+#pragma mark - actions 
 - (IBAction)navigate:(id)sender {
     
     NSLog( @"%@", [self.instructions next]);

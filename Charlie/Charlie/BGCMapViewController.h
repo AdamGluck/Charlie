@@ -10,4 +10,6 @@
 
 @interface BGCMapViewController : UIViewController
 
+@property (assign, nonatomic) NSInteger beat;
+
 @end

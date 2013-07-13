@@ -12,13 +12,13 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aga-Pl-WLo">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aga-Pl-WLo">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="hli-xP-Fpu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkD-ao-LeH">
                                 <constraints>
@@ -55,10 +55,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ktd-r1-RdV"/>
+                    <connections>
+                        <outlet property="numberField" destination="Aga-Pl-WLo" id="ePZ-Zw-YRZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGv-Ho-jGB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-419" y="-57"/>
+            <point key="canvasLocation" x="-425" y="-57"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="5">
@@ -93,7 +96,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yKT-5e-ACe">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="RFG-TY-T4M">
+                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="RFG-TY-T4M">
                             <connections>
                                 <segue destination="MQu-Vg-wj1" kind="custom" customClass="BGCCustomSegue" id="hWz-Hu-uKD"/>
                             </connections>
@@ -205,12 +208,12 @@
     <classes>
         <class className="BGCBeatEntryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BGCBeatEntryViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="numberField" candidateClass="UITextField"/>
+            </relationships>
         </class>
         <class className="BGCMapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BGCMapViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="navigate:"/>
-            </relationships>
         </class>
         <class className="BGCOptionsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BGCOptionsViewController.h"/>
