@@ -7,6 +7,7 @@
 //
 
 #import "BGCCustomSegue.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation BGCCustomSegue
 
@@ -17,7 +18,7 @@
     
     CATransition * transition = [CATransition animation];
     transition.type = kCATransitionPush;
-    transition.subtype = kCATransitionFromLeft;
+    transition.subtype = kCATransitionFromBottom;
     
     [sourceViewController.navigationController.view.layer addAnimation:transition forKey:kCATransition];
     [sourceViewController.navigationController pushViewController:destinationController animated:NO];
