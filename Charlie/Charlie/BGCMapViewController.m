@@ -19,7 +19,7 @@
 #import "TTSRequest.h"
 #import "ATTSpeechKit.h"
 
-@interface BGCMapViewController () <CLLocationManagerDelegate, GoogleRouteDelegate, BGCCrimeDataAccessDelegate, ATTSpeechServiceDelegate> {
+@interface BGCMapViewController () <CLLocationManagerDelegate, GoogleRouteDelegate, BGCCrimeDataAccessDelegate> {
     GMSMapView * mapView_;
     BOOL routing;
     BOOL shouldShowAlert;
@@ -50,9 +50,12 @@
     
     [self configureNavBar];
     [self configureMapView];
-    [self fillData];
     //[self readyForSpeech];
     
+}
+
+-(void) viewDidAppear:(BOOL)animated{
+    [self fillData];
 }
 
 #pragma mark - BGCrimeDataAccessDelegate 
@@ -71,11 +74,15 @@
         toIndex = crimeCount - 1;
     
     NSArray * topTenHotSpots = [[NSArray alloc] initWithArray:[localMidnightCrimes objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, toIndex)] ] ];
-    
+    [mapView_ clear];
+
     if (self.shouldBeRoute){
+        NSLog(@"should be route");
+        
         [self routeBetweenCrimeObjects:topTenHotSpots];
-        [self grabHotSpots:topTenHotSpots shouldShow:YES];
+        [self grabHotSpots:topTenHotSpots shouldShow:NO];
     } else if (self.shouldBeHeatMap){
+        NSLog(@"should be heat map");
         [self grabHotSpots:topTenHotSpots shouldShow:YES];
     }
     
@@ -238,7 +245,8 @@
     routing = !routing;
     
     if (routing){
-        
+        self.shouldBeHeatMap = NO;
+        self.shouldBeRoute = YES;
         [self grabCurrentTime];
         [self fillData]; // this will fill in fresh data and begin routing
         
