@@ -61,6 +61,8 @@
 		0F069F8F1791F9C300455146 /* TTSRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F069F8D1791F9C300455146 /* TTSRequest.m */; };
 		0F069F921791F9E300455146 /* SpeechConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F069F911791F9E300455146 /* SpeechConfig.m */; };
 		0F069F9B1791FE1E00455146 /* ATTSpeechKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F069F991791FE1E00455146 /* ATTSpeechKit.a */; };
+		0F30D6EC17920CAF0026BB8F /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F30D6EB17920CAF0026BB8F /* clock.png */; };
+		0F30D6EE17920D200026BB8F /* stoppatrol.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F30D6ED17920D200026BB8F /* stoppatrol.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,6 +137,8 @@
 		0F069F911791F9E300455146 /* SpeechConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechConfig.m; sourceTree = "<group>"; };
 		0F069F991791FE1E00455146 /* ATTSpeechKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = ATTSpeechKit.a; sourceTree = "<group>"; };
 		0F069F9A1791FE1E00455146 /* ATTSpeechKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATTSpeechKit.h; sourceTree = "<group>"; };
+		0F30D6EB17920CAF0026BB8F /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
+		0F30D6ED17920D200026BB8F /* stoppatrol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stoppatrol.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +281,8 @@
 		0F069F4F1791324300455146 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				0F30D6ED17920D200026BB8F /* stoppatrol.png */,
+				0F30D6EB17920CAF0026BB8F /* clock.png */,
 				0F069F7B1791CF1300455146 /* suggested.png */,
 				0F069F7D1791CF1700455146 /* heat.png */,
 				0F069F791791CE8300455146 /* cap2.png */,
@@ -390,6 +396,8 @@
 				0F069F7A1791CE8400455146 /* cap2.png in Resources */,
 				0F069F7C1791CF1300455146 /* suggested.png in Resources */,
 				0F069F7E1791CF1700455146 /* heat.png in Resources */,
+				0F30D6EC17920CAF0026BB8F /* clock.png in Resources */,
+				0F30D6EE17920D200026BB8F /* stoppatrol.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -31,6 +31,7 @@
 @property (strong, nonatomic) AVAudioPlayer * audioPlayer;
 @property (strong, nonatomic) NSString* oauthToken;
 
+@property (strong, nonatomic) IBOutlet UIButton *startPatrolButton;
 
 @end
 
@@ -162,7 +163,7 @@
 -(void)addCircleForCrimeObject: (BGCCrimeObject *) crimeSpot shouldShowOnMap: (BOOL) shouldShow{
     GMSCircle * circle = [[GMSCircle alloc] init];
     circle.position = crimeSpot.location.coordinate;
-    circle.radius = crimeSpot.probability * 10000;
+    circle.radius = crimeSpot.probability * 2000;
     
     if (shouldShow){
         circle.strokeWidth = 1.0f;
@@ -257,6 +258,10 @@
                                                          selector:@selector(updateCamera:)
                                                          userInfo:nil
                                                           repeats:YES];
+        [self.startPatrolButton setImage:[UIImage imageNamed:@"stoppatrol"] forState:UIControlStateNormal];
+        
+    } else {
+        [self.startPatrolButton setImage:[UIImage imageNamed:@"begincontrolnormal"] forState:UIControlStateNormal];
     }
     
     
