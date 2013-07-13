@@ -54,6 +54,13 @@
 		0F069F7A1791CE8400455146 /* cap2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F069F791791CE8300455146 /* cap2.png */; };
 		0F069F7C1791CF1300455146 /* suggested.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F069F7B1791CF1300455146 /* suggested.png */; };
 		0F069F7E1791CF1700455146 /* heat.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F069F7D1791CF1700455146 /* heat.png */; };
+		0F069F821791F56600455146 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F069F811791F56600455146 /* AudioToolbox.framework */; };
+		0F069F841791F57600455146 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F069F831791F57600455146 /* CFNetwork.framework */; };
+		0F069F861791F58200455146 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F069F851791F58100455146 /* Security.framework */; };
+		0F069F8E1791F9C300455146 /* SpeechAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F069F8B1791F9C300455146 /* SpeechAuth.m */; };
+		0F069F8F1791F9C300455146 /* TTSRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F069F8D1791F9C300455146 /* TTSRequest.m */; };
+		0F069F921791F9E300455146 /* SpeechConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F069F911791F9E300455146 /* SpeechConfig.m */; };
+		0F069F9B1791FE1E00455146 /* ATTSpeechKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F069F991791FE1E00455146 /* ATTSpeechKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +124,17 @@
 		0F069F791791CE8300455146 /* cap2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cap2.png; sourceTree = "<group>"; };
 		0F069F7B1791CF1300455146 /* suggested.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = suggested.png; sourceTree = "<group>"; };
 		0F069F7D1791CF1700455146 /* heat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heat.png; sourceTree = "<group>"; };
+		0F069F811791F56600455146 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		0F069F831791F57600455146 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		0F069F851791F58100455146 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		0F069F8A1791F9C300455146 /* SpeechAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeechAuth.h; sourceTree = "<group>"; };
+		0F069F8B1791F9C300455146 /* SpeechAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechAuth.m; sourceTree = "<group>"; };
+		0F069F8C1791F9C300455146 /* TTSRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSRequest.h; sourceTree = "<group>"; };
+		0F069F8D1791F9C300455146 /* TTSRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSRequest.m; sourceTree = "<group>"; };
+		0F069F901791F9E300455146 /* SpeechConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeechConfig.h; sourceTree = "<group>"; };
+		0F069F911791F9E300455146 /* SpeechConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechConfig.m; sourceTree = "<group>"; };
+		0F069F991791FE1E00455146 /* ATTSpeechKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = ATTSpeechKit.a; sourceTree = "<group>"; };
+		0F069F9A1791FE1E00455146 /* ATTSpeechKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATTSpeechKit.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +142,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F069F861791F58200455146 /* Security.framework in Frameworks */,
+				0F069F841791F57600455146 /* CFNetwork.framework in Frameworks */,
+				0F069F1A1790ED1B00455146 /* AVFoundation.framework in Frameworks */,
+				0F069F821791F56600455146 /* AudioToolbox.framework in Frameworks */,
 				0F069F2E1790ED6500455146 /* QuartzCore.framework in Frameworks */,
 				0F069F301790ED6B00455146 /* SystemConfiguration.framework in Frameworks */,
 				0F069F2C1790ED6000455146 /* OpenGLES.framework in Frameworks */,
@@ -135,11 +157,11 @@
 				0F069F201790ED2D00455146 /* CoreText.framework in Frameworks */,
 				0F069F1E1790ED2800455146 /* CoreLocation.framework in Frameworks */,
 				0F069F1C1790ED2100455146 /* CoreData.framework in Frameworks */,
-				0F069F1A1790ED1B00455146 /* AVFoundation.framework in Frameworks */,
 				0F069EF31790EC1C00455146 /* UIKit.framework in Frameworks */,
 				0F069EF51790EC1C00455146 /* Foundation.framework in Frameworks */,
 				0F069EF71790EC1C00455146 /* CoreGraphics.framework in Frameworks */,
 				0F069F161790EC9600455146 /* GoogleMaps.framework in Frameworks */,
+				0F069F9B1791FE1E00455146 /* ATTSpeechKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +188,10 @@
 		0F069EF11790EC1C00455146 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0F069F981791FE1E00455146 /* ATTSpeechKit */,
+				0F069F851791F58100455146 /* Security.framework */,
+				0F069F831791F57600455146 /* CFNetwork.framework */,
+				0F069F811791F56600455146 /* AudioToolbox.framework */,
 				0F069F3F17910C2800455146 /* MapKit.framework */,
 				0F069F2F1790ED6B00455146 /* SystemConfiguration.framework */,
 				0F069F2D1790ED6500455146 /* QuartzCore.framework */,
@@ -204,6 +230,7 @@
 				0F069F4217911E2100455146 /* BGCOptionsViewController.m */,
 				0F069F0D1790EC1C00455146 /* BGCMapViewController.h */,
 				0F069F0E1790EC1C00455146 /* BGCMapViewController.m */,
+				0F069F891791F99800455146 /* Speech Files */,
 				0F069F4F1791324300455146 /* images */,
 				0F069EF91790EC1C00455146 /* Supporting Files */,
 			);
@@ -266,6 +293,28 @@
 				0F069F4A17912E9300455146 /* submit.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		0F069F891791F99800455146 /* Speech Files */ = {
+			isa = PBXGroup;
+			children = (
+				0F069F901791F9E300455146 /* SpeechConfig.h */,
+				0F069F911791F9E300455146 /* SpeechConfig.m */,
+				0F069F8A1791F9C300455146 /* SpeechAuth.h */,
+				0F069F8B1791F9C300455146 /* SpeechAuth.m */,
+				0F069F8C1791F9C300455146 /* TTSRequest.h */,
+				0F069F8D1791F9C300455146 /* TTSRequest.m */,
+			);
+			name = "Speech Files";
+			sourceTree = "<group>";
+		};
+		0F069F981791FE1E00455146 /* ATTSpeechKit */ = {
+			isa = PBXGroup;
+			children = (
+				0F069F991791FE1E00455146 /* ATTSpeechKit.a */,
+				0F069F9A1791FE1E00455146 /* ATTSpeechKit.h */,
+			);
+			path = ATTSpeechKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +410,9 @@
 				0F069F4317911E2100455146 /* BGCOptionsViewController.m in Sources */,
 				0F069F491791205F00455146 /* BGCCustomSegue.m in Sources */,
 				0F069F4E17912F7E00455146 /* BGCBeatEntryViewController.m in Sources */,
+				0F069F8E1791F9C300455146 /* SpeechAuth.m in Sources */,
+				0F069F8F1791F9C300455146 /* TTSRequest.m in Sources */,
+				0F069F921791F9E300455146 /* SpeechConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +506,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Charlie/Charlie-Prefix.pch";
 				INFOPLIST_FILE = "Charlie/Charlie-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ATTSpeechKit\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -471,6 +527,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Charlie/Charlie-Prefix.pch";
 				INFOPLIST_FILE = "Charlie/Charlie-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ATTSpeechKit\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
