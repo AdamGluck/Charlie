@@ -19,6 +19,7 @@
     CATransition * transition = [CATransition animation];
     transition.type = kCATransitionPush;
     transition.subtype = kCATransitionFromBottom;
+    transition.duration = .3;
     
     [sourceViewController.navigationController.view.layer addAnimation:transition forKey:kCATransition];
     [sourceViewController.navigationController pushViewController:destinationController animated:NO];

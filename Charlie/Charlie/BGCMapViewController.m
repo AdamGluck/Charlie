@@ -60,9 +60,9 @@
 
 #pragma mark - UINavigationBar customization
 
--(void) configureNavBar{
-    
-    UIButton * leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 21, 31)];
+// this code is going to be repetitive, don't have time to write a custom class
+-(void) configureLeftBarButtonItem{
+    UIButton * leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 11.5, 15)];
     [leftButton setBackgroundImage:[UIImage imageNamed:@"backarrow.png"] forState:UIControlStateNormal];
     [leftButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
@@ -70,15 +70,43 @@
     UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
                                        initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
                                        target:nil action:nil];
-    negativeSpacer.width = 7;
+    negativeSpacer.width = 10;
     
     self.navigationItem.hidesBackButton = YES;
     self.navigationItem.leftBarButtonItems = [NSArray
                                               arrayWithObjects:negativeSpacer, leftButtonItem, nil];
 }
 
+-(void) configureRightBarButtonItem{
+    UIButton * rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
+    [rightButton setBackgroundImage:[UIImage imageNamed:@"customplus"] forState:UIControlStateNormal];
+    [rightButton addTarget:self action:@selector(segue) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem * rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    
+    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
+                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                       target:nil action:nil];
+    negativeSpacer.width = 10;
+    
+    self.navigationItem.rightBarButtonItems = [NSArray
+                                               arrayWithObjects:negativeSpacer, rightButtonItem, nil];
+    
+    
+}
+
+-(void) configureNavBar{
+    
+    [self configureLeftBarButtonItem];
+    [self configureRightBarButtonItem];
+   
+}
+
 -(void) back{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void) segue{
+    [self performSegueWithIdentifier:@"optionsSegue" sender:self];
 }
 
 #pragma mark - map view configuration methods
@@ -110,6 +138,7 @@
     [self.locationManager startUpdatingLocation];
     
 }
+
 // 41.783714,-87.597426
 -(void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
 
@@ -128,9 +157,7 @@
 
 
 -(void) routeBetweenCrimeObjects: (NSArray *) crimeObjects{
-    
-    NSLog(@"crime objects count == %i", [crimeObjects count]);
-    
+        
     BGCCrimeObject * firstHotSpot = crimeObjects[0];
     NSString * firstLocation = [NSString stringWithFormat:@"%f,%f", firstHotSpot.location.coordinate.latitude, firstHotSpot.location.coordinate.longitude];
     
