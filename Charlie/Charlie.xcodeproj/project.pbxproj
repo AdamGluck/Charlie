@@ -48,6 +48,12 @@
 		0F069F6B1791BAF900455146 /* begincontrolnormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F069F6A1791BAF900455146 /* begincontrolnormal.png */; };
 		0F069F6D1791BFB700455146 /* splashscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F069F6C1791BFB700455146 /* splashscreen.png */; };
 		0F069F701791BFDA00455146 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F069F6F1791BFDA00455146 /* Default-568h@2x.png */; };
+		0F069F721791C5B100455146 /* xbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F069F711791C5B100455146 /* xbutton.png */; };
+		0F069F761791CC5100455146 /* minimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F069F751791CC5100455146 /* minimage.png */; };
+		0F069F781791CD2000455146 /* cap.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F069F771791CD2000455146 /* cap.png */; };
+		0F069F7A1791CE8400455146 /* cap2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F069F791791CE8300455146 /* cap2.png */; };
+		0F069F7C1791CF1300455146 /* suggested.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F069F7B1791CF1300455146 /* suggested.png */; };
+		0F069F7E1791CF1700455146 /* heat.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F069F7D1791CF1700455146 /* heat.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +111,12 @@
 		0F069F6A1791BAF900455146 /* begincontrolnormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = begincontrolnormal.png; sourceTree = "<group>"; };
 		0F069F6C1791BFB700455146 /* splashscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splashscreen.png; sourceTree = "<group>"; };
 		0F069F6F1791BFDA00455146 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		0F069F711791C5B100455146 /* xbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xbutton.png; sourceTree = "<group>"; };
+		0F069F751791CC5100455146 /* minimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minimage.png; sourceTree = "<group>"; };
+		0F069F771791CD2000455146 /* cap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cap.png; sourceTree = "<group>"; };
+		0F069F791791CE8300455146 /* cap2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cap2.png; sourceTree = "<group>"; };
+		0F069F7B1791CF1300455146 /* suggested.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = suggested.png; sourceTree = "<group>"; };
+		0F069F7D1791CF1700455146 /* heat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heat.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +250,12 @@
 		0F069F4F1791324300455146 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				0F069F7B1791CF1300455146 /* suggested.png */,
+				0F069F7D1791CF1700455146 /* heat.png */,
+				0F069F791791CE8300455146 /* cap2.png */,
+				0F069F771791CD2000455146 /* cap.png */,
+				0F069F751791CC5100455146 /* minimage.png */,
+				0F069F711791C5B100455146 /* xbutton.png */,
 				0F069F6C1791BFB700455146 /* splashscreen.png */,
 				0F069F6A1791BAF900455146 /* begincontrolnormal.png */,
 				0F069F651791B79B00455146 /* backarrow.png */,
@@ -317,6 +335,12 @@
 				0F069F6B1791BAF900455146 /* begincontrolnormal.png in Resources */,
 				0F069F6D1791BFB700455146 /* splashscreen.png in Resources */,
 				0F069F701791BFDA00455146 /* Default-568h@2x.png in Resources */,
+				0F069F721791C5B100455146 /* xbutton.png in Resources */,
+				0F069F761791CC5100455146 /* minimage.png in Resources */,
+				0F069F781791CD2000455146 /* cap.png in Resources */,
+				0F069F7A1791CE8400455146 /* cap2.png in Resources */,
+				0F069F7C1791CF1300455146 /* suggested.png in Resources */,
+				0F069F7E1791CF1700455146 /* heat.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

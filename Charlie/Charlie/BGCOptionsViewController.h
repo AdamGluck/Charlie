@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BGCOptionsViewController : UITableViewController
+@interface BGCOptionsViewController : UIViewController
 
 @end
