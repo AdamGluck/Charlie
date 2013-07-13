@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface BGCCrimeObject : NSObject
+@interface BGCCrimeObject : NSObject 
 
 @property (assign, nonatomic) NSInteger probability;
 @property (assign, nonatomic) NSInteger time;

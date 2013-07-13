@@ -10,11 +10,28 @@
 
 @interface BGCTurnByTurnInstructions()
 
+@property (strong, nonatomic) CLLocationManager * manager;
 
 @end
 
 @implementation BGCTurnByTurnInstructions
 
+-(BGCTurnByTurnInstructions *) initWithSteps: (NSArray *) steps andShouldStart: (BOOL) starts{
+    self = [super init];
+    
+    if (self){
+        self.steps = [steps copy];
+        
+        if (starts)
+            [self start];
+    }
+    
+    return self;
+}
+
+-(void) start {
+    
+}
 -(void) stop {
     
 }

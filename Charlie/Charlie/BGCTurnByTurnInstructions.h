@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @protocol TurnByTurnInstructionDelegate <NSObject>
 
@@ -16,7 +17,7 @@
 
 @interface BGCTurnByTurnInstructions : NSObject 
 
-@property (strong, nonatomic) NSDictionary * legs;
+@property (strong, nonatomic) NSArray * steps;
 
 -(void) stop;
 

@@ -10,9 +10,11 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "GoogleRoute.h"
 #import "BGCTurnByTurnInstructions.h"
+#import <MapKit/MapKit.h>
+#import "BGCCrimeObject.h"
 
 @interface BGCMapViewController () <CLLocationManagerDelegate, GoogleRouteDelegate> {
-    GMSMapView *mapView_;
+    GMSMapView * mapView_;
 }
 @property (strong, nonatomic) CLLocationManager * locationManager;
 
@@ -31,12 +33,14 @@
 
 #pragma mark - map view configuration methods
 
+
+
 -(void) configureMapView{
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:41.8739580629 longitude:-87.6277394859 zoom:12]; // Chicago (zoomed out)
     mapView_ = [GMSMapView mapWithFrame:self.view.bounds camera:camera];
     mapView_.myLocationEnabled = YES;
     
-    self.view = mapView_;
+    [self.view insertSubview:mapView_ atIndex:0];
 }
 
 - (void)addMarkerAtLocation:(CLLocation *)location withTitle:(NSString *)title
@@ -46,6 +50,7 @@
     marker.title = title;
     marker.map = mapView_;
 }
+ 
 
 -(void) routeFromDeviceLocationToHome{
     self.locationManager = [[CLLocationManager alloc] init];
@@ -57,12 +62,12 @@
 // 41.783714,-87.597426
 -(void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
 
-    self.locationManager = manager;
+    CLLocationCoordinate2D currentLocation = manager.location.coordinate;
     
-    NSString * waypointCurrent = [NSString stringWithFormat:@"%f,%f", manager.location.coordinate.latitude, manager.location.coordinate.longitude];
-    NSString * waypointHome = @"41.783714,-87.597426";
+    CLLocationCoordinate2D homeLocation = CLLocationCoordinate2DMake(41.783714, -87.597426);
     
-    GoogleRoute * route = [[GoogleRoute alloc] initWithWaypoints:@[waypointCurrent, waypointHome] sensorStatus:YES andDelegate:self];
+    GoogleRoute * route = [[GoogleRoute alloc] initWithWaypoints:@[[NSString stringWithFormat:@"%f,%f", currentLocation.latitude, currentLocation.longitude], [NSString stringWithFormat:@"%f,%f", homeLocation.latitude, homeLocation.longitude]] sensorStatus:YES andDelegate:self];
+
     
     [route goWithTransportationType:kTransportationTypeDriving];
     
@@ -70,6 +75,7 @@
     
 }
 
+ 
 -(void) routeWithPolyline:(GMSPolyline *)polyline{
     polyline.map = mapView_;
 }
@@ -77,9 +83,12 @@
 -(void) directionsFromServer:(NSDictionary *)directionsDictionary{
     NSDictionary * routesDictionary = directionsDictionary[@"routes"][0];
     NSDictionary * legsDictionary = routesDictionary[@"legs"][0];
-    
-    
+    /*
+    BGCTurnByTurnInstructions * instructionObject = [[BGCTurnByTurnInstructions alloc] init];
+    instructionObject.steps = legsDictionary[@"steps"];
+    */
 }
+ 
 
 #pragma mark - boiler plate
 
