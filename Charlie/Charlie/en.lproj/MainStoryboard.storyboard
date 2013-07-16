@@ -209,32 +209,6 @@
         <image name="submit.png" width="601" height="92"/>
         <image name="suggested.png" width="291" height="178"/>
     </resources>
-    <classes>
-        <class className="BGCBeatEntryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BGCBeatEntryViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="numberField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="BGCMapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BGCMapViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="navigate:"/>
-                <relationship kind="outlet" name="startPatrolButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="BGCOptionsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BGCOptionsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="suggestedRoute:"/>
-                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="timeText" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
