@@ -29,12 +29,13 @@
                                     <segue destination="2" kind="push" id="iVF-cq-D1I"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1831" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aga-Pl-WLo">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter your beat" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aga-Pl-WLo">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="hli-xP-Fpu"/>
+                                    <constraint firstAttribute="height" constant="44" id="jex-qn-Egf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="27"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                         </subviews>
@@ -209,6 +210,33 @@
         <image name="submit.png" width="601" height="92"/>
         <image name="suggested.png" width="291" height="178"/>
     </resources>
+    <classes>
+        <class className="BGCBeatEntryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BGCBeatEntryViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="numberField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="BGCMapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BGCMapViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="navigate:"/>
+                <relationship kind="outlet" name="startPatrolButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="BGCOptionsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BGCOptionsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="heatMap:"/>
+                <relationship kind="action" name="suggestedRoute:"/>
+                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="timeText" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -12,7 +12,6 @@
 
 @interface BGCBeatEntryViewController () <UIGestureRecognizerDelegate, UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *numberField;
-
 @end
 
 @implementation BGCBeatEntryViewController
@@ -27,27 +26,41 @@
     tap.delegate = self;
     [self.view addGestureRecognizer:tap];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 
     
 }
 
-- (void)keyboardDidShow:(NSNotification *)notification
+- (void)viewDidDisappear:(BOOL)animated
 {
-    //Assign new frame to your view
-    [self.view setFrame:CGRectMake(0,-20,320,460)]; //here taken -20 for example i.e. your view will be scrolled to -20. change its value according to your requirement.
+    [self.view endEditing:YES];
+}
+
+
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+//    //Assign new frame to your view
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         CGRect keyboardFrame = [[notification.userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+                         [self.view setCenter:CGPointMake(self.view.center.x, self.view.center.y - (keyboardFrame.size.height/1.5))];
+                     }];    
     
 }
 
--(void)keyboardDidHide:(NSNotification *)notification
+-(void)keyboardWillHide:(NSNotification *)notification
 {
-    [self.view setFrame:CGRectMake(0,0,320,460)];
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         CGRect keyboardFrame = [[notification.userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+                         [self.view setCenter:CGPointMake(self.view.center.x, self.view.center.y + (keyboardFrame.size.height/1.5))];
+                     }];
+    
 }
 
 -(void) backgroundTapped{
     [self.view endEditing:YES];
-    
 
 }
 
@@ -72,6 +85,7 @@
     dest.beat = self.numberField.text.integerValue;
     dest.shouldBeHeatMap = NO;
     dest.shouldBeRoute = YES;
+    [self.view endEditing:YES];
     
 }
 
